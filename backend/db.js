@@ -4,7 +4,7 @@ const ingresosModel = require('./models/ingresos');
 const egresosModel = require('./models/egresos');
 const usersModel = require('./models/users');
 
-//
+
 const sequelize = new Sequelize('presupuesto', 'root', '', {
     host: '127.0.0.1',
     dialect: 'mysql',
@@ -12,9 +12,12 @@ const sequelize = new Sequelize('presupuesto', 'root', '', {
 });
 
 
+
 const Ingreso = ingresosModel(sequelize, Sequelize);
 const Egreso = egresosModel(sequelize, Sequelize);
 const User = usersModel(sequelize, Sequelize);
+
+
 
 sequelize.sync({
         force: false
