@@ -8,18 +8,24 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { LoginComponent } from './components/login/login.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

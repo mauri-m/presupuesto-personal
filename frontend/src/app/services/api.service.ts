@@ -13,8 +13,8 @@ export class ApiService {
   url = 'http://localhost:3050/api/';
   setSession: string;
 
-  login() {
-    return this.http.post<any>('/api/users/login', { user: "mauri3", email: "maury3@gmail.com", password: "1111111" });
+  login(email: string, password: string) {
+    return this.http.post<any>('/api/users/login', { email, password });
   }
 
   public getCategorias() {

@@ -10,9 +10,14 @@ export class AuthInterceptorService implements HttpInterceptor {
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('http interceptor');
-    req = req.clone({
-      setHeaders: { 'user-token': localStorage.getItem('user-token') }
-    });
+    if (localStorage.getItem('user-token')) {
+      req = req.clone({
+        setHeaders: { 'user-token': localStorage.getItem('user-token') }
+      });
+    } else {
+      console.log("no hay token")
+    }
+
     return next.handle(req);
   }
 }
