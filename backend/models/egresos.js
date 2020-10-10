@@ -7,7 +7,21 @@ module.exports = (sequelize, type) => {
         },
 
         monto: type.DOUBLE,
-        categoria: type.STRING,
-        descripcion: type.STRING
-    })
+        descripcion: type.STRING,
+
+        categoriaId: {
+            type: type.INTEGER,
+            references: {
+                model: 'categorias',
+                key: 'id'
+            }
+        },
+        userId: {
+            type: type.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id'
+            }
+        }
+    });
 }

@@ -5,8 +5,14 @@ module.exports = (sequelize, type) => {
             primaryKey: true,
             autoIncrement: true
         },
-
         monto: type.DOUBLE,
-        concepto: type.STRING
+        concepto: type.STRING,
+        userId: {
+            type: type.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id'
+            }
+        }
     })
 }

@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const ingresosModel = require('./models/ingresos');
 const egresosModel = require('./models/egresos');
 const usersModel = require('./models/users');
+const categoriasModel = require('./models/categorias');
 
 
 const sequelize = new Sequelize('presupuesto', 'root', '', {
@@ -16,6 +17,7 @@ const sequelize = new Sequelize('presupuesto', 'root', '', {
 const Ingreso = ingresosModel(sequelize, Sequelize);
 const Egreso = egresosModel(sequelize, Sequelize);
 const User = usersModel(sequelize, Sequelize);
+const Categoria = categoriasModel(sequelize, Sequelize);
 
 
 
@@ -29,5 +31,6 @@ sequelize.sync({
 module.exports = {
     Ingreso,
     Egreso,
-    User
+    User,
+    Categoria
 }
