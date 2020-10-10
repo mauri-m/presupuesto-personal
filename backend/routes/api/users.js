@@ -12,7 +12,7 @@ const {
     validationResult
 } = require('express-validator');
 
-
+router.get('/validation', (req, res) => res.json({ success: false}));
 
 router.post('/register', [
     check('user', 'User invalid').not().isEmpty(),
