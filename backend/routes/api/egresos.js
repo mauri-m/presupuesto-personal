@@ -5,11 +5,19 @@ const {
 } = require('../../db');
 
 
-router.get('/', async (req, res) => {
-    const egresos = await Egreso.findAll();
-    res.json(egresos);
-});
+// router.get('/', async (req, res) => {
+//     const egresos = await Egreso.findAll();
+//     res.json(egresos);
+// });
 
+router.get('/:userId', async (req, res) => {
+    const egreso = await Egreso.findAll({
+        where: {
+            userId : req.params.userId
+        }
+    })
+    res.json(egreso);
+});
 
 router.post('/', async (req, res) => {
     const egreso = await Egreso.create(req.body);

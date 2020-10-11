@@ -43,7 +43,8 @@ router.post('/login', async (req, res) => {
         const verificar = bcrypt.compareSync(req.body.password, user.password);
         if (verificar) {
             res.json({
-                success: createToken(user)
+                success: createToken(user),
+                id: user.id
             });
         } else {
             res.json({

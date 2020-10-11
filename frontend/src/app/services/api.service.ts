@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Users } from '../models/users';
-import { Ingresos } from '../models/ingresos';
 
 
 @Injectable({
@@ -12,21 +9,20 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   url = 'http://localhost:3050/api/';
-  setSession: string;
 
   login(email: string, password: string) {
     return this.http.post<any>('/api/users/login', { email, password });
   }
 
-  getIngresos() {
-    return this.http.get<any>('/api/ingresos');
+  getIngresos(userId: string) {
+    return this.http.get<any>(`/api/ingresos/${userId}`);
   }
 
-  getEgresos() {
-    return this.http.get<any>('/api/egresos');
+  getEgresos(userId: string) {
+    return this.http.get<any>(`/api/egresos/${userId}`);
   }
 
   public getCategorias() {
-    return this.http.get(`/api/categorias`);
+    return this.http.get<any>(`/api/categorias`);
   }
 }

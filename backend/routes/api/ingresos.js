@@ -5,10 +5,20 @@ const {
 } = require('../../db');
 
 
-router.get('/', async (req, res) => {
-    const ingresos = await Ingreso.findAll();
-    res.json(ingresos);
+// router.get('/', async (req, res) => {
+//     const ingresos = await Ingreso.findAll();
+//     res.json(ingresos);
+// });
+
+router.get('/:userId', async (req, res) => {
+    const ingreso = await Ingreso.findAll({
+        where: {
+            userId : req.params.userId
+        }
+    })
+    res.json(ingreso);
 });
+
 
 
 router.post('/', async (req, res) => {

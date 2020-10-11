@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     private _ApiService: ApiService) { }
 
   ngOnInit(): void {
-    this._ApiService.getIngresos().subscribe({
+    this._ApiService.getIngresos(localStorage.getItem('userId')).subscribe({
       next: data => {
         if (data.error) {
           this.router.navigate(['/login']);
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
 
   cargarEgresos() {
-    this._ApiService.getEgresos().subscribe({
+    this._ApiService.getEgresos(localStorage.getItem('userId')).subscribe({
       next: data => {
         if (data.error) {
           this.router.navigate(['/login']);
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   }
 
   cargarCategorias() {
-    this._ApiService.getEgresos().subscribe({
+    this._ApiService.getCategorias().subscribe({
       next: data => {
         if (data.error) {
           this.router.navigate(['/login']);
