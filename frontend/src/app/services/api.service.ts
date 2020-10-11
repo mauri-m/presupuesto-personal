@@ -22,6 +22,10 @@ export class ApiService {
     return this.http.get<any>('/api/ingresos');
   }
 
+  getEgresos() {
+    return this.http.get<any>('/api/egresos');
+  }
+
   public getCategorias() {
     return this.http.get(`/api/categorias`);
   }
